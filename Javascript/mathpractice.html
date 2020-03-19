@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+	<html lang="en">
+	<meta charset="utf-8"/>
+	<style>
+		body * {
+			margin-bottom: 5px;
+		}
+		div * {
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Math Practice</h1>
+	</header>
+	<select id="methods"  onchange="myFunction()">
+		<option>Select A Mode</option>
+		<option value="add">Addition</option>
+		<option value="sub">Subtract</option>
+		<option value="mult">Multiply</option>
+		<option value="div">Divide</option>
+	</select>
+
+<div>
+	<form action="#" onsubmit="getAns()" id="answer">
+		<p id="nums"></p> = <input id="usrans" type="text" name="ans">
+		<input type="submit">
+	</form>
+	
+	
+</div>
+<script type="text/javascript">
+		let num1 = Math.floor(Math.random() * 100);
+		let num2 = Math.floor(Math.random() * 100);
+		let ans;
+		let usrans;
+		let method;
+		
+		function myFunction() {
+			method = document.getElementById("methods").value;
+
+			switch(method) {
+				case "add":
+					ans = num1 + num2;
+					document.getElementById("nums").innerHTML = num1 + " + " + num2;
+					break;
+				case "sub":
+					ans = num1 - num2;
+					document.getElementById("nums").innerHTML = num1 + " - " + num2;
+					break;
+				case "mult":
+					ans = num1 * num2;
+					document.getElementById("nums").innerHTML = num1 + " x " + num2;
+					break;
+				case "div":
+					ans = num1 / num2;
+					document.getElementById("nums").innerHTML = num1 + " / " + num2;
+					break;
+				default:
+					ans = num1 + num2;
+					document.getElementById("nums").innerHTML = num1 + " + " + num2;
+					break;
+			}
+		}
+		
+		function getAns() {
+			usrans = document.getElementById("usrans").value;
+			alert(ans);
+		}
+		
+	</script>
+</body>
+<html>
