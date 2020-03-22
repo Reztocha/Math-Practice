@@ -1,6 +1,6 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-	<html lang="en">
 	<meta charset="utf-8"/>
 	<style>
 		body * {
@@ -12,36 +12,38 @@
 	</style>
 </head>
 <body>
+<div id="content">
 	<header>
 		<h1>Math Practice</h1>
 	</header>
-	<select id="methods"  onchange="myFunction()">
-		<option>Select A Mode</option>
-		<option value="add">Addition</option>
-		<option value="sub">Subtract</option>
-		<option value="mult">Multiply</option>
-		<option value="div">Divide</option>
-	</select>
+	
+	<button onclick="myFunction('add')" class="method" value="add">Addition</option>
+	<button onclick="myFunction('sub')" class="method" value="sub">Subtract</button>
+	<button onclick="myFunction('multi')" class="method" value="multi">Multiply</button>
+	<button onclick="myFunction('div')" class="method" value="div">Divide</button>
+	
+	<div>
+		<form action="#" onsubmit="getAns()" id="answer">
+			<p id="nums"></p> = <input id="usrans" type="text" name="ans">
+			<input type="submit">
+		</form>
+	</div>
 
-<div>
-	<form action="#" onsubmit="getAns()" id="answer">
-		<p id="nums"></p> = <input id="usrans" type="text" name="ans">
-		<input type="submit">
-	</form>
-	
-	
-</div>
-<script type="text/javascript">
-		let num1 = Math.floor(Math.random() * 100);
-		let num2 = Math.floor(Math.random() * 100);
+	<script type="text/javascript">
+		let num1;
+		let num2;
 		let ans;
 		let usrans;
-		let method;
+		let methods;
 		
-		function myFunction() {
-			method = document.getElementById("methods").value;
+		function myFunction(mthd) {
+			//Math.random() * (max - min) + min;
+			num1 = Math.floor(Math.random() * (100 - 1) + 1);
+			num2 = Math.floor(Math.random() * (100 - 1) + 1);
+			methods = document.getElementsByClassName("method");
+			
 
-			switch(method) {
+			switch(mthd) {
 				case "add":
 					ans = num1 + num2;
 					document.getElementById("nums").innerHTML = num1 + " + " + num2;
@@ -50,7 +52,7 @@
 					ans = num1 - num2;
 					document.getElementById("nums").innerHTML = num1 + " - " + num2;
 					break;
-				case "mult":
+				case "multi":
 					ans = num1 * num2;
 					document.getElementById("nums").innerHTML = num1 + " x " + num2;
 					break;
@@ -71,5 +73,6 @@
 		}
 		
 	</script>
+</div>
 </body>
 <html>
