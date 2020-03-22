@@ -3,17 +3,38 @@
 <head>
 	<meta charset="utf-8"/>
 	<style>
+		body {
+			background-color: #b3b7cb;
+			font-family: Arial, Helvetica, sans-serif;
+		}
 		body * {
-			margin-bottom: 5px;
+			margin-bottom: 15px;
 			margin-left: 2px;
 			margin-right: 2px;
 		}
-		div * {
+		#container {
+			margin: auto;
+			padding: 3px;
+			text-align: center;
+			background-color: #fafaf9;
+		}
+		#question * {
 			display: inline;
+		}
+		.button, .method {
+			padding: 8px 16px;
+			border-radius: 4px;
+			border: 2px solid grey;
+		}
+		.button:hover, .method:hover {
+			background-color: #868cac;
+			color: white;
+			border: 2px solid #5e6691;
 		}
 	</style>
 </head>
 <body>
+<div id="container">
 	<header>
 		<h1>Math Practice</h1>
 	</header>
@@ -23,10 +44,10 @@
 	<button onclick="myFunction('multi')" class="method" value="multi">Multiply</button>
 	<button onclick="myFunction('div')" class="method" value="div">Divide</button>
 	
-	<div>
+	<div id="question">
 		<form action="#" onsubmit="getAns()" id="answer">
 			<p id="nums"></p> = <input id="usrans" type="text" name="ans">
-			<input type="submit">
+			<input class="button" type="submit">
 		</form>
 	</div>
 
@@ -68,9 +89,11 @@
 		
 		function getAns() {
 			usrans = document.getElementById("usrans").value;
-			alert(ans);
+			
+			alert(ans + "\nYour answer: " + usrans);
 		}
 		
 	</script>
+</div>
 </body>
 <html>
